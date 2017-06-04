@@ -1,0 +1,514 @@
+//Flex container propertys:
+//---Flex-direction--- - возможны 4 значения: row, column, row-reverse, column-reverse (по умолчанию row) - определят в каком направлении(вдоль main или cross оси) выравниваются items;
+//---Flex-wrap--- - возможны 3 значения wrap, nowrap, wrap-reverse - определяет будет ли контейнер сжимать items по ширине и возможно добавлять горизонтальный скролл, если их количество велико или ограничится минимальной шириной, заданой у item и перенесет остальные на новую строку;
+//---Flex-flow--- - в этом свойстве можно одновременно задавать Flex-direction, затем Flex-wrap;
+//---Justify-content--- - возможны 5 значений flex-start, flex-end, center, space-between, space-around - определяет выравнивание items вдоль main оси;
+//---Align-items--- - возможны 5 значений flex-start, flex-end, center,  stretch, baseline - определяетвыравнивание items вдоль cross оси, stretch - по умолчанию, растягивает items на всю высоту контейнера;
+//---Align-content--- - возможны 4 значения flex-start, flex-end, center,  stretch -определяет, как выравниваются items при переносе на новую строку.
+
+//Flex Item Properties:
+//---Order--- - изменяет порядок item, без затрагивания html, по умолчанию 0, принимает положительные и отрицательные значения;
+//---flex-grow--- - принимает значения >=0, определяет поведение item при наличии свободного места в контейнере. По умолчанию 0, размер item определяется контентом(т.к. Flex-basis = auto по умолчанию), при 1 item старается занять все свободное пространство,
+//---flex-shrink--- - принимает значения 0 и 1, 1 означается разрешение автосжатия, при изменении размеров браузера.
+//---Flex-basis--- определяет начальную ширину item, до того как примутся в действия свойства grow и shrink, по умолчанию auto - что означает расчет ширины item по контенту, если нужно установить фиксированную ширину items, то это делается именно здесь.
+//Flex - позволяет задавать одновременно flex-grow, flex-shrink и flex-basis.
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 95%;
+}
+
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    Flex-flow: row wrap;
+    flex: 0 1 auto;
+}
+
+@mixin col{
+    box-sizing: border-box;
+    flex: 0 0 auto; 
+    //padding-right: 0.5rem;
+    //padding-left: 0.5rem;
+}
+
+.col-xs-1{
+    @include col; 
+    width: 8.33333333%;
+    Flex-basis: 8.33333333%
+}
+.col-xs-2{
+    @include col; 
+    width: 16.66666667%;
+    Flex-basis: 16.66666667%;
+}
+.col-xs-3{
+    @include col; 
+    width: 25;
+    Flex-basis: 25%
+}
+.col-xs-4{
+    @include col; 
+    width: 33.33333333%;
+    Flex-basis: 33.33333333%
+}
+.col-xs-5{
+    @include col; 
+    width: 41.66666667%;
+    Flex-basis: 41.66666667%
+}
+.col-xs-6{
+    @include col; 
+    width: 50%;
+    Flex-basis: 50%
+}
+.col-xs-7{
+    @include col; 
+    width: 58.33333333%;
+    Flex-basis: 58.33333333%
+}
+.col-xs-8{
+    @include col; 
+    width: 66.66666667%;
+    Flex-basis: 66.66666667%
+}
+.col-xs-9{
+    @include col; 
+    width: 75%;
+    Flex-basis: 75%
+}
+.col-xs-10{
+    @include col; 
+    width: 83.33333333%;
+    Flex-basis: 83.33333333%
+}
+.col-xs-11{
+    @include col; 
+    width: 91.66666667%;
+    Flex-basis: 91.66666667%
+}
+.col-xs-12{
+    @include col; 
+    width: 100%;
+    Flex-basis: 100%
+}
+.hidden-xs{
+    display: none;
+}
+.visible-xs{
+    display: block;
+}
+
+.col-xs-offset-0 {
+  margin-left: 0;
+}
+
+.col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+
+.col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+
+.col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+
+.col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+
+.col-xs-offset-6 {
+  margin-left: 50%;
+}
+
+.col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+
+.col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+
+.col-xs-offset-9 {
+  margin-left: 75%;
+}
+
+.col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+
+.col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+
+
+
+@media only screen and (min-width: 768px) { 
+.container {
+    width: 750px;
+} 
+
+.col-sm-1{
+    @include col; 
+    width: 8.33333333%;
+    Flex-basis: 8.33333333%
+}
+.col-sm-2{
+    @include col; 
+    width: 16.66666667%;
+    Flex-basis: 16.66666667%;
+}
+.col-sm-3{
+    @include col; 
+    width: 25;
+    Flex-basis: 25%
+}
+.col-sm-4{
+    @include col; 
+    width: 33.33333333%;
+    Flex-basis: 33.33333333%
+}
+.col-sm-5{
+    @include col; 
+    width: 41.66666667%;
+    Flex-basis: 41.66666667%
+}
+.col-sm-6{
+    @include col; 
+    width: 50%;
+    Flex-basis: 50%
+}
+.col-sm-7{
+    @include col; 
+    width: 58.33333333%;
+    Flex-basis: 58.33333333%
+}
+.col-sm-8{
+    @include col; 
+    width: 66.66666667%;
+    Flex-basis: 66.66666667%
+}
+.col-sm-9{
+    @include col; 
+    width: 75%;
+    Flex-basis: 75%
+}
+.col-sm-10{
+    @include col; 
+    width: 83.33333333%;
+    Flex-basis: 83.33333333%
+}
+.col-sm-11{
+    @include col; 
+    width: 91.66666667%;
+    Flex-basis: 91.66666667%
+}
+.col-sm-12{
+    @include col; 
+    width: 100%;
+    Flex-basis: 100%
+}
+.hidden-sm{
+    display: none;
+}
+.visible-sm{
+    display: block;
+}
+.col-sm-offset-0 {
+    margin-left: 0;
+  }
+
+.col-sm-offset-1 {
+margin-left: 8.33333333%;
+}
+
+.col-sm-offset-2 {
+margin-left: 16.66666667%;
+}
+
+.col-sm-offset-3 {
+margin-left: 25%;
+}
+
+.col-sm-offset-4 {
+margin-left: 33.33333333%;
+}
+
+.col-sm-offset-5 {
+margin-left: 41.66666667%;
+}
+
+.col-sm-offset-6 {
+margin-left: 50%;
+}
+
+.col-sm-offset-7 {
+margin-left: 58.33333333%;
+}
+
+.col-sm-offset-8 {
+margin-left: 66.66666667%;
+}
+
+.col-sm-offset-9 {
+margin-left: 75%;
+}
+
+.col-sm-offset-10 {
+margin-left: 83.33333333%;
+}
+
+.col-sm-offset-11 {
+margin-left: 91.66666667%;
+}
+}
+
+
+@media only screen and (min-width: 992px) { 
+.container {
+    width: 970px;
+}
+
+.col-md-1{
+    @include col; 
+    width: 8.33333333%;
+    Flex-basis: 8.33333333%
+}
+.col-md-2{
+    @include col; 
+    width: 16.66666667%;
+    Flex-basis: 16.66666667%;
+}
+.col-md-3{
+    @include col; 
+    width: 25;
+    Flex-basis: 25%
+}
+.col-md-4{
+    @include col; 
+    width: 33.33333333%;
+    Flex-basis: 33.33333333%
+}
+.col-md-5{
+    @include col; 
+    width: 41.66666667%;
+    Flex-basis: 41.66666667%
+}
+.col-md-6{
+    @include col; 
+    width: 50%;
+    Flex-basis: 50%
+}
+.col-md-7{
+    @include col; 
+    width: 58.33333333%;
+    Flex-basis: 58.33333333%
+}
+.col-md-8{
+    @include col; 
+    width: 66.66666667%;
+    Flex-basis: 66.66666667%
+}
+.col-md-9{
+    @include col; 
+    width: 75%;
+    Flex-basis: 75%
+}
+.col-md-10{
+    @include col; 
+    width: 83.33333333%;
+    Flex-basis: 83.33333333%
+}
+.col-md-11{
+    @include col; 
+    width: 91.66666667%;
+    Flex-basis: 91.66666667%
+}
+.col-md-12{
+    @include col; 
+    width: 100%;
+    Flex-basis: 100%
+}
+
+.hidden-md{
+    display: none;
+}
+.visible-md{
+    display: block;
+}
+.col-md-offset-0 {
+margin-left: 0;
+}
+
+.col-md-offset-1 {
+margin-left: 8.33333333%;
+}
+
+.col-md-offset-2 {
+margin-left: 16.66666667%;
+}
+
+.col-md-offset-3 {
+margin-left: 25%;
+}
+
+.col-md-offset-4 {
+margin-left: 33.33333333%;
+}
+
+.col-md-offset-5 {
+margin-left: 41.66666667%;
+}
+
+.col-md-offset-6 {
+margin-left: 50%;
+}
+
+.col-md-offset-7 {
+margin-left: 58.33333333%;
+}
+
+.col-md-offset-8 {
+margin-left: 66.66666667%;
+}
+
+.col-md-offset-9 {
+margin-left: 75%;
+}
+
+.col-md-offset-10 {
+margin-left: 83.33333333%;
+}
+
+.col-md-offset-11 {
+margin-left: 91.66666667%;
+}
+}
+
+
+@media only screen and (min-width: 1200px) { 
+.container {
+    width: 1170px;
+}
+.col-lg-1{
+    @include col; 
+    width: 8.33333333%;
+    Flex-basis: 8.33333333%
+}
+.col-lg-2{
+    @include col; 
+    width: 16.66666667%;
+    Flex-basis: 16.66666667%;
+}
+.col-lg-3{
+    @include col; 
+    width: 25;
+    Flex-basis: 25%
+}
+.col-lg-4{
+    @include col; 
+    width: 33.33333333%;
+    Flex-basis: 33.33333333%
+}
+.col-lg-5{
+    @include col; 
+    width: 41.66666667%;
+    Flex-basis: 41.66666667%
+}
+.col-lg-6{
+    @include col; 
+    width: 50%;
+    Flex-basis: 50%
+}
+.col-lg-7{
+    @include col; 
+    width: 58.33333333%;
+    Flex-basis: 58.33333333%
+}
+.col-lg-8{
+    @include col; 
+    width: 66.66666667%;
+    Flex-basis: 66.66666667%
+}
+.col-lg-9{
+    @include col; 
+    width: 75%;
+    Flex-basis: 75%
+}
+.col-lg-10{
+    @include col; 
+    width: 83.33333333%;
+    Flex-basis: 83.33333333%
+}
+.col-lg-11{
+    @include col; 
+    width: 91.66666667%;
+    Flex-basis: 91.66666667%
+}
+.col-lg-12{
+    @include col; 
+    width: 100%;
+    Flex-basis: 100%
+}
+.hidden-lg{
+    display: none;
+}
+.visible-lg{
+    display: block;
+}
+.col-lg-offset-0 {
+margin-left: 0;
+}
+
+.col-lg-offset-1 {
+margin-left: 8.33333333%;
+}
+
+.col-lg-offset-2 {
+margin-left: 16.66666667%;
+}
+
+.col-lg-offset-3 {
+margin-left: 25%;
+}
+
+.col-lg-offset-4 {
+margin-left: 33.33333333%;
+}
+
+.col-lg-offset-5 {
+margin-left: 41.66666667%;
+}
+
+.col-lg-offset-6 {
+margin-left: 50%;
+}
+
+.col-lg-offset-7 {
+margin-left: 58.33333333%;
+}
+
+.col-lg-offset-8 {
+margin-left: 66.66666667%;
+}
+
+.col-lg-offset-9 {
+margin-left: 75%;
+}
+
+.col-lg-offset-10 {
+margin-left: 83.33333333%;
+}
+
+.col-lg-offset-11 {
+margin-left: 91.66666667%;
+}
+}
+

@@ -1,0 +1,150 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}
+
+@font-face {
+	font-family: Olietta;
+    src: url(../../fonts/Olietta.ttf);
+}
+
+.layout{
+    font-family:Olietta;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    user-select: none; 
+    min-width: 480px;
+}
+
+.pageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.coinsBook{
+    position: relative;
+    min-height: 50em;
+    perspective: 4200px;
+    
+}
+
+$loadShadow: #bdaf0d;
+
+.loadingFog{
+    animation: fog  1.5s linear  infinite alternate;
+    background: black; 
+    border-radius: .2em;
+    border: 2px solid #776f19;  
+}
+
+
+
+@keyframes fog {
+ from{
+     background: #776f19;  
+    }
+   50%{   
+     background: black;
+    }
+    to{   
+      background: #776f19;  
+    }   
+}
+@keyframes fog2 {
+    from{
+     box-shadow: inset 1px 1px 10px $loadShadow;   
+    }
+    50%{
+      box-shadow: inset 1px 1px 100px $loadShadow;
+    }  
+    to{
+      box-shadow: inset 1px 1px 10px $loadShadow;
+    }
+    
+}

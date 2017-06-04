@@ -1,0 +1,40 @@
+# Note: see https://httpd.apache.org/docs/current/howto/htaccess.html:
+#
+# "You should avoid using .htaccess files completely if you have access to
+# httpd main server config file. Using .htaccess files slows down your Apache
+# http server. Any directive that you can include in a .htaccess file is
+# better set in a Directory block, as it will have the same effect with
+# better performance."
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+<ifModule mod_deflate.c>
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/x-icon "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType text/css "access plus 6048000 seconds"
+  ExpiresByType application/x-javascript "access plus 604800 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ico|jpe?g|png|gif|swf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch "\.(css)$">
+    Header set Cache-Control "max-age=6048000, public"
+  </FilesMatch>
+  <FilesMatch "\.(js)$">
+    Header set Cache-Control "max-age=2160000, private"
+  </FilesMatch>
+
+</IfModule>

@@ -1,0 +1,13 @@
+{
+    "name": "user/back-end",
+    "require": {
+        "slim/slim": "^3.3",
+        "slim/php-view": "^2.1"
+    },
+    "authors": [
+        {
+            "name": "ES",
+            "email": "siverskii@yandex.ru"
+        }
+    ]
+}

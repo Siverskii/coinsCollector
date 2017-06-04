@@ -1,0 +1,459 @@
+.hide{
+    display:none;
+}
+.pageSection{
+    transform-style:preserve-3d;
+    transform-origin: left center 0px;
+    position: absolute;
+    height: 100%;
+    -moz-backface-visibility: hidden;
+}
+.page{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    border: 2px solid #9e9210;
+    border-radius: .75em;
+    background: #fffaca;
+    box-shadow: 
+        inset 0px 0px 0px 2px #9e9210,
+        inset 0px 0px 0px 4px #000000,
+        inset 0px 0px 0px 7px #9e9210,
+        inset 0px 0px 0px 10px #000000,
+        inset 0px 0px 100px #000000;   
+    
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.page__header{
+    box-sizing: border-box;
+    height: 12.5%;
+    flex-basis: 100%;    
+    text-align: center;
+    h1{
+        font-size: 2.25em;
+        line-height: .1em;
+        padding: 1.2em;
+        padding-bottom: .6em;  
+    }
+    hr{
+        width: 60%;
+        border: 1px solid #9e9210;
+        border-bottom: none;       
+    }
+}
+
+.page__footer{  
+    box-sizing: border-box;
+    height: 12.5%;
+    display: flex;
+    .pageNum{
+        font-size: 2em;
+        line-height: 3em;
+        flex: 0 0 auto;
+        margin-left: auto;  
+    }
+    hr{
+        border: 1px solid #9e9210;
+        border-bottom: none;
+        width: 40%;
+        height: 0;
+        margin-left: 1em;
+        position: absolute;
+    }
+    .page__footer_messField, .backPage__footer_messField{
+        padding: .5em 0;
+        font-size: 1.75em;
+        line-height: 1em;
+        text-align: center;
+        position: relative;
+    }
+}
+
+.page__body{
+    box-sizing: border-box;
+    height: 75%;
+    position: relative;
+}
+
+//navigation page
+.page__nav{
+    font-size: 1.85em;
+    ul{
+        
+        li{
+            display: flex;
+            will-change: background;
+            list-style-type:none;
+            padding: .25em 0;
+            line-height: 1.45em;
+            border-radius: .2em;
+            position: relative;
+            span{
+                flex: 0 0 auto;    
+            }   
+        :first-child{
+            margin-right: auto;
+        }
+        }
+    }   
+}
+
+.chaptersSection .frontPage{
+    .page__nav{
+        li{
+            cursor: pointer;
+            transition: all .25s ease; 
+            &:hover{
+                text-shadow: 0px 0px 6px #9e9210;
+                transform: scale(1.01);
+            }
+            &:active{
+                transform: scale(1);    
+            }
+        }   
+    }    
+}
+
+
+
+.page__chapter{
+    font-size: 1.25em;
+    line-height: .5em;
+    padding-top: .5em;
+    padding-bottom:.5em;
+    display: flex;
+    transition: all .25s ease;
+    cursor: pointer;
+    span{
+            flex: 0 0 auto;
+        }
+        :first-child{
+            margin-right: auto;
+        }
+    &:hover{
+        text-shadow: 0px 0px 6px #9e9210; 
+        transform: scale(1.01);
+    }
+    &:active{
+        transform: scale(1);    
+    }
+}
+
+//title page
+
+.titleSection,.endSection{
+    .backPage{
+        box-shadow: 
+        inset 0px 0px 0px 2px #9e9210,
+        inset 0px 0px 0px 4px #000000,
+        inset 0px 0px 0px 7px #9e9210,
+        inset 0px 0px 0px 10px #000000,
+        inset 0px 0px 200px #000000,
+        -3px 3px 10px 0px  black;   
+    }
+}
+
+
+.page_titlePage{
+    background: #402007;
+    box-shadow: 
+        inset 0px 0px 40px 2px #b7b7b7,
+        inset 0px 0px 200px 10px #000000,
+        inset 0px -50px 200px 10px black,
+         -4px 4px 10px 0px  #2d2d2d; 
+    cursor: default;
+    border: none;
+    padding: 2px;    
+}
+
+
+.page__titleForTitlePage{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #d0c233;
+    font-size: 1.65em; 
+    line-height: 1.4em;
+}
+
+.frontPage{
+    z-index: 2;
+    
+    .page__titleForTitlePage{
+        text-align: center;
+        font-size: 4em;
+    }
+}
+
+.backPage{
+    z-index: 1;
+    transform: rotateY(180deg);
+    .page__footer{    
+        span{
+         margin-left: 0;  
+            
+        }
+    }
+}
+
+//contentSection
+//coinsPage
+
+.coinsContainer{
+ -webkit-tap-highlight-color: rgba(0,0,0,0);    
+}
+.coinImageContainer{
+    margin: .75em 1.25em;
+    cursor: pointer;
+    position: relative;
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    img{
+        position: absolute;
+        width: 98%;
+        top: 0px;
+        left: -1px;
+        bottom:0px;
+        right: 0px;
+        margin: auto;
+        border-radius: 50%;
+        z-index: -1;
+        transition: all .15s ease; 
+    }
+
+}
+.coinImageContainerInner{
+    position: relative;
+    box-shadow: inset -1px 1px 10px 0px #585858;
+    border-radius: 50%;
+    border: 1px solid #9e9210;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+}
+
+
+.coinImageContainerInner:hover img {
+     transform: scale(1.03);
+}
+
+.aboutPage{
+    p{
+        font-size: 1.75em;
+    }
+}
+
+.endSection{
+    .backPage{
+        z-index: 2;
+        transform: rotateY(0deg);
+        box-shadow: 
+        inset 0px 0px 0px 2px #9e9210,
+        inset 0px 0px 0px 4px #000000,
+        inset 0px 0px 0px 7px #9e9210,
+        inset 0px 0px 0px 10px #000000,
+        inset 0px 0px 200px #000000,
+        3px 3px 10px 0px  black;  
+    }
+    .frontPage{
+        z-index: 1;
+        transform: rotateY(180deg);   
+    }
+}
+
+.coinDescriptionWrapper{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.coinDescription{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.description__coinsName{
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.coinImage_descriptionWrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 47.5%;
+} 
+
+.coinImage_descriptionIntWrapper{
+    width: 45%;
+    flex: 0 0 auto;
+    margin: auto;
+}
+
+.coinImage_description{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 5px #9e9210, 0px 0px 10px 0px #404040;   
+}
+
+.closeDescription{
+    cursor: pointer;
+    transition: all .25s ease;
+    &:hover{
+        text-shadow: 0px 0px 6px #9e9210; 
+        transform: scale(1.01);
+    }
+    &:active{
+        transform: scale(1);    
+    }
+}
+
+.backPage{
+    .arrow{
+        transform: rotateY(180deg);
+    }    
+}
+
+.arrow{
+    display: none;
+    font-size: 2.5em;
+    line-height: 1.25em;
+    color: #8b810e;
+    text-shadow: 1px 2px 2px #404040;
+    transition: all .25s ease; 
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    &:hover{
+        color: #404040;
+        transition: background-color 2000 linear;
+    
+    }
+    &:active{
+        transform: scale(1);
+        text-shadow: none;
+       
+    }
+}
+
+
+
+@media screen and (max-width: 1200px){ 
+    .coinImageContainer{
+        margin: .75em 1em;
+    }
+    .coinsBook{
+        min-height: 45em;
+    }  
+}
+
+@media screen and (max-width: 992px) { 
+    .coinImageContainer{
+        margin: .75em .9em;
+    }
+    .coinsBook{
+        min-height: 45em;
+        font-size: .80em;
+    }   
+}
+
+@media screen and (max-width: 768px) { 
+    .arrow{
+        display: inline-block;
+    }
+    .coinImageContainer{
+        margin: .75em .9em;
+    }
+
+    .coinsBook{
+        min-height: 45em;
+        font-size: .70em;
+    }  
+}
+
+@media screen and (max-width: 610px) { 
+    .arrow{
+         display: inline-block;
+    }
+    .coinImageContainer{
+        margin: .50em .9em;
+    }
+
+    .coinsBook{
+        min-height: 45em;
+        font-size: .50em;
+    }  
+}
+
+
+
+
+@media screen and (orientation:landscape) and (max-height: 760px) {
+     .arrow{
+         display: inline-block;
+    }
+    
+    .coinImageContainer{
+        margin: .50em .9em;
+    }
+
+    .coinsBook{
+        min-height: 50em;
+        font-size: .85em;
+    }   
+}
+
+@media screen and (orientation:landscape) and (max-height: 700px) {
+     .arrow{
+         display: inline-block;
+    }
+    
+    .coinImageContainer{
+        margin: .50em .9em;
+    }
+
+    .coinsBook{
+        min-height: 50em;
+        font-size: .80em;
+    }   
+}
+
+@media screen and (orientation:landscape) and (max-height: 600px) {
+     .arrow{
+        display: inline-block;
+    }
+    
+    .coinImageContainer{
+        margin: .50em 1em;
+    }
+
+    .coinsBook{
+       min-height: 50em;
+       font-size: .75em;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

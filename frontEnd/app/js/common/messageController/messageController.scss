@@ -1,0 +1,21 @@
+.errorMessage{
+    color: #b50000;
+    animation: messAnimate  2s linear  infinite alternate;
+}
+
+.completeMessage{
+    color: #285200;
+    animation: messAnimate  2s linear  infinite alternate;   
+}
+
+@keyframes messAnimate {
+    from{
+     transform: scale(1);
+    }
+     50%{
+      transform: scale(1.035);
+    }  
+    to{
+       transform: scale(1);
+    } 
+}
