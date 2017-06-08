@@ -1,18 +1,22 @@
 "use strict";
-define(["../../common/View","../../common/templateMaker","../../common/eventDispatcher"],function (View,templateMaker,eventDispatcher) {
-    const coinsDescription = function(model){
-      return new View(model).extend({ 
-          tagClass: "coinDescription",
-          tpl: templateMaker("#coinsDescription-tpl"),
-          
-           events:{
-            "click .closeDescription": "closeDescription",
-           },
-          
-           closeDescription(){
-                eventDispatcher.trigger("closeDescription",this.model); 
-           }
-      });  
-    }
-    return coinsDescription;
+import { baseView } from "./baseView.js";
+import { templateMaker } from "../../common/templateMaker.js";
+import { eventDispatcher } from "../../common/eventDispatcher.js";
+import { coinsDescriptionViewTpl } from "./pageViewsTpl/coinsDescriptionViewTpl.js";
+
+const coinsDescriptionView = baseView.extendView(function(model){
+      this.tagClass = "coinDescription",
+      this.tpl = templateMaker(coinsDescriptionViewTpl),
+      this.model = model;
+
+      this.events = {
+        "click .closeDescription": "closeDescription",
+       },
+
+       this.closeDescription = function(){
+            eventDispatcher.trigger("closeDescription",this.model); 
+       }
 });
+
+export {coinsDescriptionView};
+

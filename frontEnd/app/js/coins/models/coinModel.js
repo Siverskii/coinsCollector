@@ -1,6 +1,7 @@
 //Модель  coinModel - контейнер, со встроенными методами, предназначенный для хранения информации о каждой монете. Модель имеет следующие методы: set/get - для установки и получения атрибутов модели; fetch/save - для получения/загрузки информации на сервер, методы fetch/save принимают на вход функции success и error, которые срабатывают в зависимости от результата взаимодействия с сервером(success-успеха,error-ошибки). Обмен с сервером происходит посредством объекта RESTfulAPI, который после инициализации и вызова метода send, возвразщает promise, при срабатывании которого методы fetch/save получают ответ от сервера и вызывают соответсвущие callback функции.    
 "use strict";
-define(["../../common/RESTfulAPI"],function (RESTfulAPI) {
+import { RESTfulAPI } from "../../common/RESTfulAPI.js";
+
   const coinModel = function(attributes = {}){
     this.url = attributes.url || "test"; 
     delete attributes.url;
@@ -21,9 +22,9 @@ define(["../../common/RESTfulAPI"],function (RESTfulAPI) {
     return intModel;    
   },
       
-    coinModel.prototype.get = function(attr){
+  coinModel.prototype.get = function(attr){
         return this._coinAttr[attr];    
-    },
+  },
   
   coinModel.prototype.fetch = function(data,callbacks = {}){
     let responsePromise = RESTfulAPI.init({method: "GET", url: this.url+"?imgNum="+data.imgNum+"&imgPageNum="+data.imgPageNum+"&imgSeries="+data.imgSeries}).send();
@@ -41,6 +42,6 @@ define(["../../common/RESTfulAPI"],function (RESTfulAPI) {
         serverResponse.status == "200" ? callbacks.success(serverResponse) : callbacks.error(serverResponse) 
         return;    
      },()=>{});  
-  }    
- return coinModel;  
-});
+  } 
+  
+  export {coinModel};

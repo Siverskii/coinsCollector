@@ -1,17 +1,15 @@
-//Объект RESTfulAPI предназначен для осущесивления обмена данными с сервером. Обмен с сервером происходи посредством встроенного объекта XMLHttpRequest. RESTfulAPI имеет следующие методы: метод init - для установки метода обмена с сервером (POST,GET,PUT,UPDATE),url с которым происходит обмен и сами данные; метод send - для отправки сообщение на сервер.   
+//Объект RESTapi предназначен для осущесивления обмена данными с сервером. Обмен с сервером происходи посредством встроенного объекта XMLHttpRequest. RESTapi имеет следующие методы: метод init - для установки метода обмена с сервером (POST,GET,PUT,UPDATE),url с которым происходит обмен и сами данные; метод send - для отправки сообщение на сервер.   
 "use strict";
-define(function () {
-const RESTfulAPI = function(options){}     
 
-RESTfulAPI.prototype.init = function(options,data = {}){
-    this.method = options.method,
-    this.url = options.url;
-    this.data = data;
+const RESTapi = function(options){}     
+
+RESTapi.prototype.init = function({method,url}){
+    this.method = method,
+    this.url = url;
     return this;
 }
 
-RESTfulAPI.prototype.send = function(data=null){
-   
+RESTapi.prototype.send = function(data=null){
     return new Promise((resolve,reject) => {
         let req = new XMLHttpRequest(),
             resp;
@@ -27,6 +25,5 @@ RESTfulAPI.prototype.send = function(data=null){
     });
 }
 
-
-return new RESTfulAPI();
-});
+const RESTfulAPI = new RESTapi();
+export {RESTfulAPI};

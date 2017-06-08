@@ -1,6 +1,7 @@
 "use strict";
-define(["./messageController.scss"],function () {
-const messageController = function (){
+import mControllerScss from "./messageController.scss";
+
+const mController = function (){
     this.showConnectionError = function(){
         let footters = Array.from(document.querySelectorAll(".page__footer_messField,.backPage__footer_messField"));
         footters.forEach((node)=>{
@@ -30,6 +31,7 @@ const messageController = function (){
             footters = null;    
         },4000);  
     }
-}   
-return new messageController();
-});
+}
+
+const messageController = new mController();
+export {messageController};

@@ -1,6 +1,9 @@
 //Коллекция coinsCollection - контейнер моделей монет. Коллекция имеет метод fetch для информации о моделях с сервера и создания массива моделей coinsModel. Обмен с сервером происходит аналогично методу fetch модели coinsModel. 
 "use strict";
-define(["../../common/RESTfulAPI","../models/coinModel"],function (RESTfulAPI,coinsModel) {
+
+import { RESTfulAPI } from "../../common/RESTfulAPI.js";
+import { coinModel } from "../models/coinModel.js";
+
   const coinsCollection = function(attr = {}){
    this.url = attr.url+"?series="+attr.seriesNumber;
    this.seriesNumber = attr.seriesNumber;  
@@ -17,11 +20,13 @@ define(["../../common/RESTfulAPI","../models/coinModel"],function (RESTfulAPI,co
         if (serverResponse.status == "200"){
             const modelCollect = JSON.parse(serverResponse.data);
             Object.keys(modelCollect).forEach(modelIndex =>{
-                this.collection.push(new coinsModel(modelCollect[modelIndex]));
+                this.collection.push(new coinModel(modelCollect[modelIndex]));
             });
             callbacks.success(this.collection);
         }else callbacks.error(serverResponse);  
      }); 
   }
- return coinsCollection;  
-});
+  
+  export {coinsCollection};
+
+  

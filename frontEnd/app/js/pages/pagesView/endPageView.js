@@ -1,10 +1,12 @@
 "use strict";
-define(["../../common/View","../../common/templateMaker"],function (View,templateMaker) {
-    const endPageView = function(model){
-      return new View(model).extend({
-          rootId:".coinsBook",
-          tpl: templateMaker("#endPage-tpl"),
-      });  
-    }
-    return endPageView;
+import { baseView } from "./baseView.js";
+import { templateMaker } from "../../common/templateMaker.js";
+import { endPageViewTpl } from "./pageViewsTpl/endPageViewTpl.js";
+
+const endPageView = baseView.extendView(function(){
+      this.rootId = ".coinsBook",
+      this.tpl = templateMaker(endPageViewTpl)
 });
+
+export {endPageView};
+
